@@ -43,8 +43,8 @@ public class OAuth2PlatformClientFactory {
 		return oauth2Config;
 	}
 	
-	public String getPropertyValue(String proppertyName) {
-		return env.getProperty(proppertyName);
+	public String getPropertyValue(String propertyName) {
+		return env.getProperty(propertyName);
 	}
 
 }
