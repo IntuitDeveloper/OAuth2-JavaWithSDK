@@ -2,6 +2,7 @@ package com.intuit.developer.sampleapp.oauth2.controller;
 
 import javax.servlet.http.HttpSession;
 
+import com.intuit.oauth2.exception.OAuthException;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,9 +50,15 @@ public class RefreshTokenController {
                     .put("refresh_token", bearerTokenResponse.getRefreshToken()).toString();
             return jsonString;
         }
+        catch (OAuthException ex) {
+            logger.error("OAuthException while calling refreshToken ", ex);
+            logger.error("intuit_tid: " + ex.getIntuit_tid());
+            logger.error("More info: " + ex.getResponseContent());
+            return new JSONObject().put("response", ex.getResponseContent()).toString();
+        }
         catch (Exception ex) {
         	logger.error("Exception while calling refreshToken ", ex);
-        	return new JSONObject().put("response",failureMsg).toString();
+        	return new JSONObject().put("response", failureMsg).toString();
         }    
         
     }

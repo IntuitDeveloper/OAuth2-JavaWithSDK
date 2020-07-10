@@ -58,6 +58,8 @@ public class OAuth2Controller {
 			return new RedirectView(oauth2Config.prepareUrl(scopes, redirectUri, csrf), true, true, false);
 		} catch (InvalidRequestException e) {
 			logger.error("Exception calling connectToQuickbooks ", e);
+			logger.error("intuit_tid: " + e.getIntuit_tid());
+			logger.error("More info: " + e.getResponseContent());
 		}
 		return null;
 	}
@@ -81,6 +83,8 @@ public class OAuth2Controller {
 			return new RedirectView(oauth2Config.prepareUrl(scopes, redirectUri, csrf), true, true, false);
 		} catch (InvalidRequestException e) {
 			logger.error("Exception calling signInWithIntuit ", e);
+			logger.error("intuit_tid: " + e.getIntuit_tid());
+			logger.error("More info: " + e.getResponseContent());
 		}
 		return null;
 		
@@ -106,6 +110,8 @@ public class OAuth2Controller {
 			return new RedirectView(oauth2Config.prepareUrl(scopes, redirectUri, csrf), true, true, false);
 		} catch (InvalidRequestException e) {
 			logger.error("Exception calling getAppNow ", e);
+			logger.error("intuit_tid: " + e.getIntuit_tid());
+			logger.error("More info: " + e.getResponseContent());
 		}
 		return null;
 	}

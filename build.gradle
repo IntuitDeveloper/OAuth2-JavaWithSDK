@@ -27,22 +27,23 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
-	compile("com.intuit.quickbooks-online:ipp-v3-java-data:3.0.0")
-    compile (group: 'com.intuit.quickbooks-online', name: 'ipp-v3-java-devkit', version: '3.0.0', classifier: 'jar-with-dependencies')   
-    compile (group: 'com.intuit.quickbooks-online', name: 'oauth2-platform-api', version: '3.0.0', classifier: 'jar-with-dependencies')   
+	compile("com.intuit.quickbooks-online:ipp-v3-java-data:6.0.6")
+    compile (group: 'com.intuit.quickbooks-online', name: 'ipp-v3-java-devkit', version: '6.0.6', classifier: 'jar-with-dependencies')
+    compile (group: 'com.intuit.quickbooks-online', name: 'oauth2-platform-api', version: '6.0.6', classifier: 'jar-with-dependencies')
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-thymeleaf")
     compile("org.springframework.boot:spring-boot-devtools")
-    compile('org.codehaus.jackson:jackson-core-asl:1.9.13')
-    compile('org.codehaus.jackson:jackson-mapper-asl:1.9.13')
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.11.1'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.11.1'
     compile("org.springframework.data:spring-data-rest-webmvc")
-    compile("org.springframework:spring-test:4.1.4.RELEASE")  
-    compile("commons-lang:commons-lang:2.6")
+    compile("org.springframework:spring-test:4.1.4.RELEASE")
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.10'
     compile("org.apache.httpcomponents:httpcore")
     compile("org.apache.httpcomponents:httpclient")
-    compile group: 'org.json', name: 'json', version: '20180813'
+    compile group: 'org.json', name: 'json', version: '20200518'
     compile("log4j:log4j:1.2.17")
     compile (group: 'ant', name: 'ant', version: '1.7.0')
+    compile group: 'commons-codec', name: 'commons-codec', version: '1.14'
     testCompile('org.springframework.boot:spring-boot-starter-test')
   
 }

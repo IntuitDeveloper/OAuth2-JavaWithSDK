@@ -74,6 +74,8 @@ public class CallbackController {
 						   }
 					} catch (OpenIdException e) {
 						logger.error("Exception validating id token ", e);
+					   logger.error("intuit_tid: " + e.getIntuit_tid());
+					   logger.error("More info: " + e.getResponseContent());
 					}
 	            }
 	            

@@ -2,6 +2,7 @@ package com.intuit.developer.sampleapp.oauth2.controller;
 
 import javax.servlet.http.HttpSession;
 
+import com.intuit.oauth2.exception.ConnectionException;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +45,12 @@ public class RevokeTokenController {
         	PlatformResponse response  = client.revokeToken(refreshToken);
             logger.info("raw result for revoke token request= " + response.getStatus());
             return new JSONObject().put("response", "Revoke successful").toString();
+        }
+        catch (ConnectionException ex) {
+            logger.error("ConnectionException while calling refreshToken ", ex);
+            logger.error("intuit_tid: " + ex.getIntuit_tid());
+            logger.error("More info: " + ex.getResponseContent());
+            return new JSONObject().put("response", ex.getResponseContent()).toString();
         }
         catch (Exception ex) {
         	logger.error("Exception while calling revokeToken ", ex);
